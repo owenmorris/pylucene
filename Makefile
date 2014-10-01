@@ -15,7 +15,7 @@
 # site-packages directory.
 #
 
-VERSION=4.10.1-0
+VERSION=4.10.1-1
 LUCENE_SVN_VER=HEAD
 LUCENE_VER=4.10.1
 LUCENE_SVN=http://svn.apache.org/repos/asf/lucene/dev/tags/lucene_solr_4_10_1
