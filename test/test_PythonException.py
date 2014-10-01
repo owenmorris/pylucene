@@ -32,8 +32,12 @@ class PythonExceptionTestCase(PyLuceneTestCase):
         qp = TestQueryParser(Version.LUCENE_CURRENT, 'all',
                              StandardAnalyzer(Version.LUCENE_CURRENT))
 
-        with self.assertRaises(TestException):
-            qp.parse("foo bar")
+        if lucene.getVMEnv().isShared():
+            with self.assertRaises(TestException):
+                qp.parse("foo bar")
+        else:
+            with self.assertRaises(lucene.JavaError):
+                qp.parse("foo bar")
 
 
 if __name__ == "__main__":
