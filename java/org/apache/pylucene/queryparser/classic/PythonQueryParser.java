@@ -18,6 +18,7 @@ package org.apache.pylucene.queryparser.classic;
 import java.util.List;
 
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.queryparser.classic.CharStream;
@@ -69,6 +70,8 @@ public class PythonQueryParser extends QueryParser {
                                              boolean quoted);
     public native Query getFieldQuery_slop(String field, String queryText,
                                            int slop);
+
+    public native Query newTermQuery(Term term);
 
     public Query getFieldQuery_quoted_super(String field, String queryText,
                                             boolean quoted)

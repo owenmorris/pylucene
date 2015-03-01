@@ -42,6 +42,9 @@ class PythonQueryParserTestCase(PyLuceneTestCase):
         class TestQueryParser(BooleanTestMixin, PythonQueryParser):
             def getFieldQuery_quoted(_self, field, queryText, quoted):
                 return super(TestQueryParser, _self).getFieldQuery_quoted_super(field, queryText, quoted)
+            def newTermQuery(_self, term):
+                print "CALLING newTermQuery with", term
+                return TermQuery(term)
         
         qp = TestQueryParser(Version.LUCENE_CURRENT, 'all',
                              StandardAnalyzer(Version.LUCENE_CURRENT))
