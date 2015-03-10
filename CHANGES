@@ -1,7 +1,7 @@
-Version 4.9.0 -> 4.10.1
------------------------
- - using Lucene 4.10.1 sources
- - PyLucene built with JCC 2.21
+Version 4.10.1 -> 4.10.4
+------------------------
+ - using Lucene 4.10.4 sources
+ - added newTermQuery() classic query parser override and test
 
 Version 4.8.0 -> 4.9.0
 ----------------------
