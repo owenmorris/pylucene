@@ -15,7 +15,7 @@
 # site-packages directory.
 #
 
-VERSION=4.10.4-1
+VERSION=4.10.4-2
 LUCENE_SVN_VER=HEAD
 LUCENE_VER=4.10.4
 LUCENE_SVN=http://svn.apache.org/repos/asf/lucene/dev/tags/lucene_solr_4_10_4
@@ -163,6 +163,7 @@ JARS+=$(JOIN_JAR)               # join module
 JARS+=$(FACET_JAR)              # facet module
 JARS+=$(SUGGEST_JAR)            # suggest/spell module
 JARS+=$(EXPRESSIONS_JAR)        # expressions module
+JARS+=$(KUROMOJI_JAR)           # japanese analyzer module
 
 
 #
@@ -193,6 +194,7 @@ JOIN_JAR=$(LUCENE)/build/join/lucene-join-$(LUCENE_VER).jar
 FACET_JAR=$(LUCENE)/build/facet/lucene-facet-$(LUCENE_VER).jar
 SUGGEST_JAR=$(LUCENE)/build/suggest/lucene-suggest-$(LUCENE_VER).jar
 EXPRESSIONS_JAR=$(LUCENE)/build/expressions/lucene-expressions-$(LUCENE_VER).jar
+KUROMOJI_JAR=$(LUCENE)/build/analysis/kuromoji/lucene-analyzers-kuromoji-$(LUCENE_VER).jar
 
 MISC_JAR=$(LUCENE)/build/misc/lucene-misc-$(LUCENE_VER).jar
 ANTLR_JAR=$(LUCENE)/expressions/lib/antlr-runtime-3.5.jar
@@ -283,6 +285,9 @@ $(SUGGEST_JAR): $(LUCENE_JAR)
 
 $(EXPRESSIONS_JAR): $(LUCENE_JAR)
 	cd $(LUCENE)/expressions; $(ANT) -Dversion=$(LUCENE_VER)
+
+$(KUROMOJI_JAR): $(LUCENE_JAR)
+	cd $(LUCENE)/analysis/kuromoji; $(ANT) -Dversion=$(LUCENE_VER)
 
 $(MISC_JAR): $(LUCENE_JAR)
 	cd $(LUCENE)/misc; $(ANT) -Dversion=$(LUCENE_VER)
