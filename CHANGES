@@ -2,6 +2,7 @@ Version 4.10.1 -> 4.10.4
 ------------------------
  - using Lucene 4.10.4 sources
  - added newTermQuery() classic query parser override and test
+ - added kuromoji JAR file to JCC command line to wrap JapaneseAnalyzer
 
 Version 4.8.0 -> 4.9.0
 ----------------------
